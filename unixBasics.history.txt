@@ -1,0 +1,13 @@
+  257  git commit -m "Adding oops.txt"
+  258  git push
+  260  git rm oops.txt
+  261  git commit -m "Removing oops"
+  263  git push
+  264  git status
+  265  git rm files/cancer_genes.fasta
+  266  git commit -m "removing files/cancer_genes.fasta"
+  267  git push
+  268  git status
+  269  echo "practice file" > never.txt
+  270  git add never.txt
+  271  git reset never.txt
