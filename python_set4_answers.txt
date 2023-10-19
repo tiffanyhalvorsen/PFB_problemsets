@@ -1,0 +1,56 @@
+4. While loop to print 1-100:
+
+  5 count = 0
+  6 while count < 101:
+  7   print(count)
+  8   count += 1
+  9 print("Done")
+
+
+5. factorial loop:
+
+  7 num = 1000
+  8 factorial = 1000
+  9 while num >= 1:
+ 10   factorial = factorial * num
+ 11   num = num - 1
+ 12 print(num, factorial)
+
+6. iterate over list for even numbers:
+
+  5 nums = [101,2,15,22,95,33,2,27,72,15,52]
+  6 
+  7 for num in nums:
+  8   if num % 2 == 0:
+  9     print(num):w
+
+7. sums of odd and even numbers:
+
+  5 nums = [101,2,15,22,95,33,2,27,72,15,52]
+  6 
+  7 even = 0
+  8 for num in nums:
+  9   if num % 2 == 0:
+ 10     even += num
+ 11 print(f'Sum of even numbers: {even}')
+ 12 
+ 13 odd = 0 
+ 14 for num in nums:
+ 15   if num % 2 == 1:
+ 16     odd += num
+ 17 print(f'Sum of odd numbers: {odd}')
+
+
+8. 
+
+11. More list stuff:
+  5 seqs = ['ATGCCCGGCCCGGC','GCGTGCTAGCAATACGATAAACCGG', 'ATATATATCGAT','ATGGGCCC']
+  6 
+  7 for seq in seqs:
+  8   print(seqs.index(seq), len(seq), seq, sep = '\t')
+
+12. list comprehension to make a list of tuples:
+  6 seqs = ['ATGCCCGGCCCGGC','GCGTGCTAGCAATACGATAAACCGG', 'ATATATATCGAT','ATGGGCCC']
+  7 
+  8 pairs = [(len(seq), seq) for seq in seqs]
+  9 print(pairs)
