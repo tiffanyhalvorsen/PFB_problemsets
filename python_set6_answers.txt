@@ -1,0 +1,104 @@
+1. Yes; with curly braces, the string isn't separated & ordered.
+
+TypeError: set expected at most 1 argument, got 3
+>>> myset=set('123')
+>>> myset
+{'3', '1', '2'}
+>>> myset2={'123'}
+>>> myset2
+{'123'}
+
+2. Set stuff:
+
+  3 setA = {3,14,15,9,26,5,35,9}
+  4 setB = {60,22,14,0,9}
+  5 
+  6 print(f'intersection of A and B is: {setA & setB}')
+  7 print(f'difference between A and B is: {setA - setB}')
+  8 print(f'union between A and B is: {setA | setB}')
+  9 print(f'the symmetric difference between A and B is: {setA ^ setB}')
+
+3. Creating a set using a DNA sequence:
+
+{'T', 'G', 'C', 'X', 'N', 'A'}
+
+returns all unique characters in a set.
+
+4. Script that returns unique nt's, nt counts, and GC content:
+
+  1 #!/usr/bin/env python3
+  2 
+  3 import sys
+  4 
+  5 seq = sys.argv[1].upper()
+  6 
+  7 # create set of unique nucleotides in sequence
+  8 nt_comp = set(seq)
+  9 print(f'Unique nucleotides in sequence: {nt_comp}')
+ 10 
+ 11 # create an empty dict for nt counts
+ 12 nt_count = {}
+ 13 
+ 14 # count total number of nt's in input seq
+ 15 for nt in nt_comp:
+ 16   count = seq.count(nt)
+ 17   nt_count[nt] = count
+ 18 
+ 19 # determine GC content
+ 20 GC = (seq.count('G')+seq.count('C'))/len(seq)
+ 21 
+ 22 print(f'Total count of each nt: {nt_count}')
+ 23 print(f'GC-content: {GC:.2f}')
+
+5 & 6. File input/output
+
+  1 #!/usr/bin/env python3
+  2 
+  3 import sys
+  4 
+  5 input_file = sys.argv[1]
+  6 output_file = sys.argv[2]
+  7  
+  8 with open(input_file, "r") as file_read, open(output_file, "w") as file_write:
+  9   for line in file_read:
+ 10     line = line.rstrip()
+ 11     line = line.upper()
+ 12     file_write.write(line)
+ 13  
+ 14 print('Wrote new file with uppercase lines.')
+
+7. Generate dict of reverse complement sequences:
+
+  1 #!/usr/bin/env python3
+  2 
+  3 gene_dict = {}
+  4 with open("./Python_06.seq.txt") as seq_file:
+  5   for line in seq_file:
+  6     line = line.rstrip()
+  7     seq_name,seq = line.split()
+  8     rev_comp = seq[::-1]
+  9     print(f'{seq_name}\t{seq}\tReverse complement')
+
+8. FASTA parser:
+
+  1 #!/usr/bin/env python3
+  2 
+  3 import sys
+  4 import re
+  5 
+  6 input_file = sys.argv[1]
+  7 
+  8 fastaDict = {}
+  9 with open(input_file, "r") as fasta_all:
+ 10   for line in fasta_all:
+ 11     line = line.rstrip()
+ 12     if line.startswith('>'):
+ 13       match = re.search(r"^>(\S+)", line)
+ 14       seq_id = match.group(1)
+ 15       fastaDict[seq_id] = ""
+ 16     else:
+ 17       fastaDict[seq_id] += line
+ 18 
+ 19 print(fastaDict)
+
+

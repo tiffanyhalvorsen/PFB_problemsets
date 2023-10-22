@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+
+import sys
+
+aa_dict = {'atg' : 'm',
+	         'ttt' : 'p',
+           'ttc' : 'p',
+           'tta' : 'l',
+           'ttg' : 'l',
+           'ctt' : 'l',
+           'ctc' : 'l',
+           'cta' : 'l',
+           'ctg' : 'l',
+           'att' : 'i',
+           'atc' : 'i',
+           'ata' : 'i',
+           'gtt' : 'v',
+           'gtc' : 'v',
+           'gta' : 'i',
+           'gta' : 'i',
+           'tct' : 's',
+           'tcc' : 's',
+           'tca' : 's',
+           'tcg' : 's',
+           'cct' : 'p',
+           'ccc' : 'p',
+           'cca' : 'p',
+           'ccg' : 'p',
+           'act' : 't',
+           'acc' : 't',
+           'aca' : 't',
+           'acg' : 't',
+           'gct' : 'a',
+           'gcc' : 'a',
+           'gca' : 'a',
+           'gcg' : 'a',
+           'tat' : 'y',
+           'tac' : 'y',
+           'taa' : '*',
+           'tag' : '*',
+           'cat' : 'h',
+           'cac' : 'h',
+           'caa' : 'q',
+           'cag' : 'q',
+           'aat' : 'n',
+           'aac' : 'n',
+           'aaa' : 'k',
+           'aag' : 'k',
+           'gat' : 'd',
+           'gac' : 'd',
+           'gaa' : 'e',
+           'gag' : 'e',
+           'tgt' : 'c',
+           'tgc' : 'c',
+           'tga' : '*',
+           'tgg' : 'w',
+           'cgt' : 'r',
+           'cgc' : 'r',
+           'agt' : 's',
+           'agc' : 's',
+           'aga' : 'r',
+           'agg' : 'r',
+           'ggt' : 'g',
+           'ggc' : 'g',
+           'gga' : 'g',
+           'ggg' : 'g'
+}
+
+gene = 'atggttcgctgaggcctagcgcggctatcgcgatcgatgatcgatcgtagctagcta'
+
+result = ""
+for n in range(0, len(gene),3):
+  codon = aa_dict[gene[n:n+3]]
+  prot += codon
+result.append(prot)

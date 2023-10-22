@@ -10,10 +10,12 @@ with open(input_file, "r") as fasta_all:
 	for line in fasta_all:
 		line = line.rstrip()
 		if line.startswith('>'):
-			match = re.search(r"^>(\S+)", line)
+			match = re.search(r'^>(\S+)\s+(.+)$', line)
 			seq_id = match.group(1)
-			fastaDict[seq_id] = ""
+			desc = match.group(2)
+			fastaDict[seq_id] = {'desc':desc,
+													 'seq':""}
 		else:
-			fastaDict[seq_id] += line
+			fastaDict[seq_id]['seq'] += line
 		
 print(fastaDict)
